@@ -12,7 +12,7 @@ bool DemoClass::bar(int x)
 
 void DemoClass::biz(double a)
 {
-   foo();
-   bar(1);
-   bar(5);
+    foo();
+    bar(1);
+    bar(5);
 }
