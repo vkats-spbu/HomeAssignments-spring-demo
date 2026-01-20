@@ -20,6 +20,18 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+# Automate astyle application
+find_program(ASTYLE_EXECUTABLE astyle DOC "A tool to format the code")
+
+# Add a custom target
+add_custom_target("format" COMMAND
+  "${ASTYLE_EXECUTABLE}"
+  -r --options=${CMAKE_CURRENT_SOURCE_DIR}/astyle.ini
+   ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+   ${CMAKE_CURRENT_SOURCE_DIR}/*.h
+  VERBATIM
+)
+
 # Add subdirectories for assignments
 add_subdirectory(Assignment1)
 
